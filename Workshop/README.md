@@ -40,6 +40,11 @@ For each prompt below:
 
 1. A function called `multiplication` that returns the product of the two input numbers.
 
+- Expect `multiplication(2, 3)` to return 6
+- Expect `multiplication("2", "3")` to return an error
+- Expect `multiplication(-2, 3)` to return -6
+- Expect `multiplication()` to return 0
+
 2. A function called `concatOdds` takes two arrays of integers as arguments. It should return a single array that only contains the odd numbers, in ascending order, from both of the arrays.
    - Example: `concatOdds([3, 2, 1], [9, 1, 1, 1, 4, 15, -1])`
      - ...should result in `[-1, 1, 3, 9, 15]`
@@ -48,6 +53,11 @@ For each prompt below:
        - What kinds of unexpected inputs should we worry about?
      - What should happen when there are multiples of the same odd number in the arrays? (Hint: We gave you the answer to this one in the example above.)
 
+- Expect `concatOdds([1, 9, 4], [3, 6, 3, -3])` to return [-3, 1, 3, 9].
+- Expect `concatOdds([8, 2, 4], [16, 22, 6])` to return [].
+- Expect `concatOdds([1, 9, 4, 9], [])` to return an error.
+- Expect `concatOdds(["1", "9", "4"], ["3", "6", "-3"])` to return an error.
+
 ## Functional Tests:
 
 1. A shopping cart checkout feature that allows a user to check out as a guest (without an account), or as a logged-in user. They should be allowed to do either, but should be asked if they want to create an account or log in if they check out as a guest.
@@ -55,3 +65,17 @@ For each prompt below:
      - What should happen if the cart is empty?
      - What needs to be shown to the user at each step of check out?
      - What behaviors of this feature does the prompt miss or gloss over?
+
+Given I am a new user shopping on the site
+
+WHEN I navigate to the check out page
+THEN I am prompted to checkout as a guest, log in, or create an account.
+
+WHEN I click to create an account
+THEN I see a form with a submit buttom.
+
+WHEN I navigate to the checkout page with no items in my cart
+THEN I see a prompted message stating no items are in my cart.
+
+WHEN I click log in on the check out page
+THEN I see a form with a username, password, and submit button.
